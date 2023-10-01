@@ -1,31 +1,34 @@
 package com.bd2.ocorrenciasAeronauticas.model;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
-
-@Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@ToString
 
-public class Ocorrencia {
+
+@Entity
+@Table
+public class Ocorrencia implements Serializable {
+
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Você pode adicionar um ID se desejar
 
     @Column(name = "Numero_da_Ocorrencia")
     private String numeroDaOcorrencia;
+
 
     @Column(name = "Numero_da_Ficha")
     private String numeroDaFicha;
@@ -36,9 +39,9 @@ public class Ocorrencia {
     @Column(name = "Classificacao_da_Ocorrencia")
     private String classificacaoDaOcorrencia;
 
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     @Column(name = "Data_da_Ocorrencia")
-    private Date dataDaOcorrencia;
+    private String dataDaOcorrencia;
 
     @Column(name = "Hora_da_Ocorrencia")
     private String horaDaOcorrencia;
@@ -163,5 +166,7 @@ public class Ocorrencia {
     // Getters e setters aqui...
 
     // Construtores aqui...
+
+
 }
 
