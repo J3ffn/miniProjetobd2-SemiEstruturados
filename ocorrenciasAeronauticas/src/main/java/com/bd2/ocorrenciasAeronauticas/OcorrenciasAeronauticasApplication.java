@@ -1,6 +1,6 @@
 package com.bd2.ocorrenciasAeronauticas;
 
-import org.springframework.beans.BeanUtils;
+import com.bd2.ocorrenciasAeronauticas.startup.Startup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +10,7 @@ public class OcorrenciasAeronauticasApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OcorrenciasAeronauticasApplication.class, args);
 
+		Startup.start();
 	}
 
 }

@@ -37,11 +37,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>javax.persistence-api</artifactId>
-			<version>2.2</version> <!-- Use a versão apropriada -->
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.9.0</version>
 		</dependency>
+
+		<!--		<dependency>-->
+<!--			<groupId>javax.persistence</groupId>-->
+<!--			<artifactId>javax.persistence-api</artifactId>-->
+<!--			<version>2.2</version> &lt;!&ndash; Use a versão apropriada &ndash;&gt;-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
