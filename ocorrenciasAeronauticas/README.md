@@ -1,3 +1,0 @@
-# Ocorrencias Aeronáuticas
-
-* :D
