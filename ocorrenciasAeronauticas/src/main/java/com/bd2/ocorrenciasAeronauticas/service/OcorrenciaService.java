@@ -20,7 +20,7 @@ public class OcorrenciaService {
      * Salvar uma única ocorrência
      * @param novaOcorrencia
      */
-    public void registrarOcorrencia(Ocorrencia novaOcorrencia){
+    public void registrarNovaOcorrencia(Ocorrencia novaOcorrencia){
 
         this.ocorrenciaRepository.save(novaOcorrencia);
 
@@ -28,9 +28,13 @@ public class OcorrenciaService {
 
     /**
      * Método para salvar uma lista de ocorrencias
-     * @param ocorrencias
+     * @param novasOcorrencias
+     * TODO salvar uma ocorrencia no DB
+     * TODO logica de exceptions
      */
-    public void registrarOcorrencias(List<Ocorrencia> ocorrencias){
+    public Ocorrencia registrarNovasOcorrencias(List<Ocorrencia> novasOcorrencias){
+
+        return null;
 
     }
 

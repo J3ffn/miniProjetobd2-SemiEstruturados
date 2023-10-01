@@ -13,9 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 
-
 @Entity
-@Table
+@Table(name = "ocorrencias")
 public class Ocorrencia implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -34,7 +33,7 @@ public class Ocorrencia implements Serializable {
     private String Operador_Padronizado;
 
     @Column(name = "Classificacao_da_Ocorrencia")
-    private String Classificacao_da_Ocorrencia;
+    private String Classificacao_da_Ocorrência;
 
     @Column(name = "Data_da_Ocorrencia")
     private String Data_da_Ocorrencia;
