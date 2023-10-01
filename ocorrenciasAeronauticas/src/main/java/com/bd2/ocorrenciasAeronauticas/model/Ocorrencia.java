@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
+
 
 @Setter
 @Getter
@@ -17,8 +17,6 @@ import java.util.Date;
 @Entity
 @Table
 public class Ocorrencia implements Serializable {
-
-
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -27,146 +25,143 @@ public class Ocorrencia implements Serializable {
     private Long id; // Você pode adicionar um ID se desejar
 
     @Column(name = "Numero_da_Ocorrencia")
-    private String numeroDaOcorrencia;
-
+    private String Numero_da_Ocorrencia;
 
     @Column(name = "Numero_da_Ficha")
-    private String numeroDaFicha;
+    private String Numero_da_Ficha;
 
     @Column(name = "Operador_Padronizado")
-    private String operadorPadronizado;
+    private String Operador_Padronizado;
 
     @Column(name = "Classificacao_da_Ocorrencia")
-    private String classificacaoDaOcorrencia;
+    private String Classificacao_da_Ocorrencia;
 
-//    @Temporal(TemporalType.DATE)
     @Column(name = "Data_da_Ocorrencia")
-    private String dataDaOcorrencia;
+    private String Data_da_Ocorrencia;
 
     @Column(name = "Hora_da_Ocorrencia")
-    private String horaDaOcorrencia;
+    private String Hora_da_Ocorrencia;
 
     @Column(name = "Municipio")
-    private String municipio;
+    private String Municipio;
 
     @Column(name = "UF")
-    private String uf;
+    private String UF;
 
     @Column(name = "Regiao")
-    private String regiao;
+    private String Regiao;
 
     @Column(name = "Descricao_do_Tipo")
-    private String descricaoDoTipo;
+    private String Descricao_do_Tipo;
 
     @Column(name = "ICAO")
-    private String icao;
+    private String ICAO;
 
     @Column(name = "Latitude")
-    private String latitude;
+    private String Latitude;
 
     @Column(name = "Longitude")
-    private String longitude;
+    private String Longitude;
 
     @Column(name = "Tipo_de_Aerodromo")
-    private String tipoDeAerodromo;
+    private String Tipo_de_Aerodromo;
 
-    @Column(name = "Historico", length = 4000) // Defina o tamanho máximo adequado para o campo de histórico
-    private String historico;
+    @Column(name = "Historico", length = 4000)
+    private String Historico;
 
     @Column(name = "Matricula")
-    private String matricula;
+    private String Matricula;
 
     @Column(name = "Categoria_da_Aeronave")
-    private String categoriaDaAeronave;
+    private String Categoria_da_Aeronave;
 
     @Column(name = "Operador")
-    private String operador;
+    private String Operador;
 
     @Column(name = "Tipo_de_Ocorrencia")
-    private String tipoDeOcorrencia;
+    private String Tipo_de_Ocorrencia;
 
     @Column(name = "Fase_da_Operacao")
-    private String faseDaOperacao;
+    private String Fase_da_Operacao;
 
     @Column(name = "Operacao")
-    private String operacao;
+    private String Operacao;
 
     @Column(name = "Danos_a_Aeronave")
-    private String danosAAeronave;
+    private String Danos_a_Aeronave;
 
     @Column(name = "Aerodromo_de_Destino")
-    private String aerodromoDeDestino;
+    private String Aerodromo_de_Destino;
 
     @Column(name = "Aerodromo_de_Origem")
-    private String aerodromoDeOrigem;
+    private String Aerodromo_de_Origem;
 
     @Column(name = "Lesoes_Fatais_Tripulantes")
-    private String lesoesFataisTripulantes;
+    private String Lesoes_Fatais_Tripulantes;
 
     @Column(name = "Lesoes_Fatais_Passageiros")
-    private String lesoesFataisPassageiros;
+    private String Lesoes_Fatais_Passageiros;
 
     @Column(name = "Lesoes_Fatais_Terceiros")
-    private String lesoesFataisTerceiros;
+    private String Lesoes_Fatais_Terceiros;
 
     @Column(name = "Lesoes_Graves_Tripulantes")
-    private String lesoesGravesTripulantes;
+    private String Lesoes_Graves_Tripulantes;
 
     @Column(name = "Lesoes_Graves_Passageiros")
-    private String lesoesGravesPassageiros;
+    private String Lesoes_Graves_Passageiros;
 
     @Column(name = "Lesoes_Graves_Terceiros")
-    private String lesoesGravesTerceiros;
+    private String Lesoes_Graves_Terceiros;
 
     @Column(name = "Lesoes_Leves_Tripulantes")
-    private String lesoesLevesTripulantes;
+    private String Lesoes_Leves_Tripulantes;
 
     @Column(name = "Lesoes_Leves_Passageiros")
-    private String lesoesLevesPassageiros;
+    private String Lesoes_Leves_Passageiros;
 
     @Column(name = "Lesoes_Leves_Terceiros")
-    private String lesoesLevesTerceiros;
+    private String Lesoes_Leves_Terceiros;
 
     @Column(name = "Ilesos_Tripulantes")
-    private String ilesosTripulantes;
+    private String Ilesos_Tripulantes;
 
     @Column(name = "Ilesos_Passageiros")
-    private String ilesosPassageiros;
+    private String Ilesos_Passageiros;
 
     @Column(name = "Lesoes_Desconhecidas_Tripulantes")
-    private String lesoesDesconhecidasTripulantes;
+    private String Lesoes_Desconhecidas_Tripulantes;
 
     @Column(name = "Lesoes_Desconhecidas_Passageiros")
-    private String lesoesDesconhecidasPassageiros;
+    private String Lesoes_Desconhecidas_Passageiros;
 
     @Column(name = "Lesoes_Desconhecidas_Terceiros")
-    private String lesoesDesconhecidasTerceiros;
+    private String Lesoes_Desconhecidas_Terceiros;
 
     @Column(name = "Modelo")
-    private String modelo;
+    private String Modelo;
 
     @Column(name = "CLS")
-    private String cls;
+    private String CLS;
 
     @Column(name = "Tipo_ICAO")
-    private String tipoIcao;
+    private String Tipo_ICAO;
 
     @Column(name = "PMD")
-    private String pmd;
+    private String PMD;
 
     @Column(name = "Numero_de_Assentos")
-    private String numeroDeAssentos;
+    private String Numero_de_Assentos;
 
     @Column(name = "Nome_do_Fabricante")
-    private String nomeDoFabricante;
+    private String Nome_do_Fabricante;
 
     @Column(name = "PSSO")
-    private String psso;
+    private String PSSO;
 
     // Getters e setters aqui...
 
     // Construtores aqui...
-
 
 }
 
