@@ -22,34 +22,34 @@ public class Municipio {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMunicipio;
     
-    @Column
+    @Column(name = "titulo", nullable = false)
     private String title;
     
-    @Column
+    @Column(name = "sumario", nullable = false, lenght = 30)
     private String summary;
     
-    @Column
+    @Column(name = "data_atualizacao", nullable = false)
     private Date updated;
     
-    @Column
+    @Column(name = "autor", nullable = false)
     private String author;
     
-    @Column
+    @Column(name = "categoria", nullable = false)
     private String category;
 
-    @Column
+    @Column(name = "uf", nullable = false, length = 2)
     private String uf;
 
-    @Column
+    @Column(name = "municipio", nullable = false )
     private String municipio;
 
-    @Column
+    @Column(name = "entidade_executora", nullable = false)
     private String entidadeExecutora;
 
-    @Column
+    @Column(name = "cnpj", nullable = false)
     private String cnpj;
 
-    @Column
+    @Column(name = "quantidade_alunos_atendidos", nullable = false)
     private int qtdAlunosAtendidos;
 
 }
