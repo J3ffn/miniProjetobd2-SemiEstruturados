@@ -21,41 +21,39 @@ public class OcorrenciaService {
      * @param novaOcorrencia
      */
     public void registrarNovaOcorrencia(Ocorrencia novaOcorrencia){
-
         this.ocorrenciaRepository.save(novaOcorrencia);
-
     }
 
     /**
-     * Método para salvar uma lista de ocorrencias
+     * Método para salvar uma lista de ocorrências
      * @param novasOcorrencias
-     * TODO salvar uma ocorrencia no DB
-     * TODO logica de exceptions
+     * @return A lista de ocorrências salvas
      */
-    public Ocorrencia registrarNovasOcorrencias(List<Ocorrencia> novasOcorrencias){
-
-        return null;
-
+    public List<Ocorrencia> registrarNovasOcorrencias(List<Ocorrencia> novasOcorrencias){
+        try {
+            return this.ocorrenciaRepository.saveAll(novasOcorrencias);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao salvar as ocorrências.", e);
+        }
     }
 
     /**
-     * Retornar todas as ocorrencias com paginacao
+     * Retornar todas as ocorrências com paginação
      * @param numeroPagina
      * @param tamanhoPagina
      * @return
      */
     public List<Ocorrencia> verOcorrencias(int numeroPagina, int tamanhoPagina){
-
         Pageable paginacao = PageRequest.of(numeroPagina, tamanhoPagina);
         Page<Ocorrencia> pagina = this.ocorrenciaRepository.findAll(paginacao);
         return pagina.getContent();
     }
 
+    /**
+     * Deletar todas as ocorrências
+     */
     public void deletarTodasOcorrencias(){
         this.ocorrenciaRepository.deleteAll();
     }
-
-
-
-
 }
