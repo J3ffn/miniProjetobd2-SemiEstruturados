@@ -16,6 +16,7 @@ public class OcorrenciaService {
     @Autowired
     private OcorrenciaRepository ocorrenciaRepository;
 
+
     /**
      * Salvar uma única ocorrência
      * @param novaOcorrencia

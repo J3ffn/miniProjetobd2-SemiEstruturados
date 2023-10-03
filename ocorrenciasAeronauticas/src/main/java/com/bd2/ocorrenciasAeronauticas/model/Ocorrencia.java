@@ -16,6 +16,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "ocorrencias")
 public class Ocorrencia implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -157,10 +158,6 @@ public class Ocorrencia implements Serializable {
 
     @Column(name = "PSSO")
     private String PSSO;
-
-    // Getters e setters aqui...
-
-    // Construtores aqui...
 
 }
 

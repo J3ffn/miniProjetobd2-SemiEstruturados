@@ -3,7 +3,9 @@ package com.bd2.ocorrenciasAeronauticas.startup;
 import com.bd2.ocorrenciasAeronauticas.model.Ocorrencia;
 import com.bd2.ocorrenciasAeronauticas.service.OcorrenciaService;
 import com.google.gson.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
@@ -18,6 +20,7 @@ import java.util.List;
 @Component
 public class Documento {
 
+    @Autowired
     private OcorrenciaService service;
 
     private static final String registrosSelecionadosPath = "dados.json";
@@ -26,8 +29,8 @@ public class Documento {
 
     public Documento() {
         gson = new GsonBuilder().setPrettyPrinting().create();
-        service = new OcorrenciaService();
     }
+
 
     /**
      * Selecionar o número de registros, partindo do primeiro, para popular o banco de dados.
