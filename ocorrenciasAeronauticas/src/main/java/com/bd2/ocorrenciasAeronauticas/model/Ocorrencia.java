@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 
 
 @Setter
@@ -20,11 +21,12 @@ public class Ocorrencia implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; // Você pode adicionar um ID se desejar
 
-    @Column(name = "Numero_da_Ocorrencia")
+    @Column(name = "Numero_da_Ocorrencia", unique = true)
     private String Numero_da_Ocorrencia;
 
     @Column(name = "Numero_da_Ficha")
@@ -158,6 +160,21 @@ public class Ocorrencia implements Serializable {
 
     @Column(name = "PSSO")
     private String PSSO;
+
+    public void tratarCampos(){
+        Field[] fields = getClass().getDeclaredFields();
+        for (Field field : fields){
+            if(field.getName().equals("id") || field.getName().equals("serialVersionUID"))
+                continue;
+            try{
+                if(field.get(this) == null || field.get(this).toString().trim().equals(""))
+                    field.set(this, "nao informado");
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
 

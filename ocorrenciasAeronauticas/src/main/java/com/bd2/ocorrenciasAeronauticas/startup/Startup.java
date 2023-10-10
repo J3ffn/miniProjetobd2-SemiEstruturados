@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Classe que fica o codigo de conversao
  */
 @Component
 public class Startup {
@@ -12,14 +11,15 @@ public class Startup {
     /**
      * Start
      */
-    @Autowired
     private Documento documento;
 
-    public void start() {
+    @Autowired
+    public Startup(Documento documento) {
+        this.documento = documento;
+    }
 
-        documento.selecionarQuantiaRegistros(3);
-
-        //...
+   public void start() {
+        documento.selecionarQuantiaRegistros(1);
     }
 
 }

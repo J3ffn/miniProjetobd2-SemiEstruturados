@@ -4,8 +4,6 @@ import com.bd2.ocorrenciasAeronauticas.model.Ocorrencia;
 import com.bd2.ocorrenciasAeronauticas.service.OcorrenciaService;
 import com.google.gson.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
@@ -28,7 +26,10 @@ public class Documento {
     private final Gson gson;
 
     public Documento() {
-        gson = new GsonBuilder().setPrettyPrinting().create();
+        gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .serializeNulls() // mapear nulos
+                .create();
     }
 
 
@@ -37,6 +38,7 @@ public class Documento {
      * @param numeroRegistros
      */
     public void selecionarQuantiaRegistros(int numeroRegistros){
+        System.out.println("------");
 
         try(
                 FileWriter writer = new FileWriter("dados.json");
@@ -46,33 +48,28 @@ public class Documento {
 
             JsonArray jsonOcorrenciasArray = (JsonArray) JsonParser.parseReader(reader);
             for (JsonElement jsonElement : jsonOcorrenciasArray){
-
+                // TODO - lógica de correção
                 Ocorrencia novaOcorrencia = gson.fromJson(jsonElement, Ocorrencia.class);
                 ocorrencias.add(novaOcorrencia);
-
-
                 numeroRegistros --;
                 if(numeroRegistros == 0)
                     break;
 
             }
 
-            // inserir ocorrencias em outro arquivo .json
             String stringJsonOcorrencias = gson.toJson(ocorrencias);
 
             writer.write(stringJsonOcorrencias);
             writer.flush();
             writer.close();
 
-            System.out.println(ocorrencias.size()); // tamanho
-
+            tratarCamposNulos(ocorrencias);
             popularBanco(ocorrencias);
         }
         catch (IOException exception){
             System.out.println(exception.getMessage());
 
         }
-
 
     }
 
@@ -82,5 +79,10 @@ public class Documento {
 
     }
 
+    private void tratarCamposNulos(List<Ocorrencia> ocorrencias){
+
+        ocorrencias.forEach(Ocorrencia::tratarCampos);
+
+    }
 
 }
