@@ -31,7 +31,7 @@ public class BdEstruturadosApplication {
         List<Properties> propertiesList = XmlService.obterEntidade(caminhoXml);
 
         // Utiliza essa linha de baixo quando a persistência estiver correta!
-//        propertiesList.forEach(propertie -> propertiesService::save);
+        propertiesList.forEach(propertiesService::save);
 
         SpringApplication.exit(context);
     }
