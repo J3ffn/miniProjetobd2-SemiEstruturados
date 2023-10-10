@@ -22,18 +22,18 @@ import java.util.List;
 public class BdEstruturadosApplication {
 
     public static void main(String[] args) throws IOException, XMLStreamException, ParseException {
-        ApplicationContext context = SpringApplication.run(BdEstruturadosApplication.class, args);
+//        ApplicationContext context = SpringApplication.run(BdEstruturadosApplication.class, args);
 
-        XmlService xmlService = context.getBean(XmlService.class);
-        PropertiesService propertiesService = context.getBean(PropertiesService.class);
+//        XmlService xmlService = context.getBean(XmlService.class);
+//        PropertiesService propertiesService = context.getBean(PropertiesService.class);
 
         String caminhoXml = "src/main/resources/bd/PNATEAlunosAtendidos.xml";
         List<Properties> propertiesList = XmlService.obterEntidade(caminhoXml);
 
         // Utiliza essa linha de baixo quando a persistência estiver correta!
-        propertiesList.forEach(propertiesService::save);
-
-        SpringApplication.exit(context);
+//        propertiesList.forEach(propertiesService::save);
+//
+//        SpringApplication.exit(context);
     }
 
 

@@ -10,9 +10,11 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -26,49 +28,60 @@ public class XmlService {
 
         List<Properties> propertiesList = new ArrayList<>();
         Properties properties = null;
-        String currentElement = null;
-        String elementValue = null;
+        String chaveElemento = null;
+        String valorElemento = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        int contador = 0;
+        boolean consistente = true;
 
         while (reader.hasNext()) {
             int event = reader.next();
 
             switch (event) {
                 case XMLStreamConstants.START_ELEMENT -> {
-                    currentElement = reader.getLocalName();
-                    if ("properties".equals(currentElement)) {
+                    chaveElemento = reader.getLocalName();
+                    if ("properties".equals(chaveElemento)) {
                         properties = new Properties();
                     }
                 }
-                case XMLStreamConstants.CHARACTERS -> elementValue = reader.getText().trim();
+                case XMLStreamConstants.CHARACTERS -> valorElemento = reader.getText().trim();
                 case XMLStreamConstants.END_ELEMENT -> {
-                    if ("properties".equals(currentElement)) {
+                    if ("properties".equals(chaveElemento)) {
                         properties = null;
-                    } else if (properties != null && currentElement != null) {
-                        System.out.println(currentElement);
-                        switch (currentElement) {
-                            case "Uf" -> properties.setUf(elementValue);
-                            case "Municipio" -> properties.setMunicipio(elementValue);
-                            case "EntidadeExecutora" -> properties.setEntidadeExecutora(elementValue);
-                            case "Cnpj" -> properties.setCnpj(elementValue);
+                    } else if (properties != null && chaveElemento != null && valorElemento != null) {
+                        System.out.println(chaveElemento);
+                        switch (chaveElemento) {
+                            case "Uf" -> properties.setUf(valorElemento);
+                            case "Municipio" -> properties.setMunicipio(valorElemento);
+                            case "EntidadeExecutora" -> properties.setEntidadeExecutora(valorElemento);
+                            case "Cnpj" -> properties.setCnpj(valorElemento);
                             case "QtdAlunosAtendidos" -> {
-                                if (elementValue != null && !elementValue.equals("")) {
-                                    properties.setQtdAlunosAtendidos(Integer.parseInt(elementValue));
+                                if (valorElemento != null && !valorElemento.equals("")) {
+                                    properties.setQtdAlunosAtendidos(Integer.parseInt(valorElemento));
                                 }
                             }
                             case "updated" -> {
-                                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
                                 sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-                                properties.setUpdated(sdf.parse(elementValue));
+                                properties.setUpdated(sdf.parse(valorElemento));
+
+                            }
+                        }
+                        if (valorElemento != null) {
+                            if (chaveElemento.equals("updated") && consistente){
                                 propertiesList.add(properties);
                             }
-
+                        } else {
+                            consistente = false;
+                            contador++;
                         }
+
                     }
-                    currentElement = null;
-                    elementValue = null;
+                    chaveElemento = null;
+                    valorElemento = null;
                 }
             }
         }
+        System.out.println(contador);
         return propertiesList;
     }
 

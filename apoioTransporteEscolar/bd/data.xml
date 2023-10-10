@@ -61557,7 +61557,7 @@
 			<m:properties>
 				<d:Uf>PR</d:Uf>
 				<d:Municipio>PEABIRU</d:Municipio>
-				<d:EntidadeExecutora>PREF MUN DE PEABIRU</d:EntidadeExecutora>
+				<d:EntidadeExecutora>PREF</d:EntidadeExecutora>
 				<d:Cnpj>75370148000117</d:Cnpj>
 				<d:QtdAlunosAtendidos m:type="Int32">243</d:QtdAlunosAtendidos>
 			</m:properties>
@@ -73328,7 +73328,7 @@
 		<a:content type="application/xml">
 			<m:properties>
 				<d:Uf>RS</d:Uf>
-				<d:Municipio>ITACURUBI</d:Municipio>
+				<d:Municipio></d:Municipio>
 				<d:EntidadeExecutora>PREF MUN DE ITACURUBI</d:EntidadeExecutora>
 				<d:Cnpj>91573048000144</d:Cnpj>
 				<d:QtdAlunosAtendidos m:type="Int32">300</d:QtdAlunosAtendidos>
@@ -79556,7 +79556,7 @@
 		<a:content type="application/xml">
 			<m:properties>
 				<d:Uf>SC</d:Uf>
-				<d:Municipio>CAPAO ALTO</d:Municipio>
+				<d:Municipio></d:Municipio>
 				<d:EntidadeExecutora>PREF MUN DE CAPAO ALTO</d:EntidadeExecutora>
 				<d:Cnpj>01599409000139</d:Cnpj>
 				<d:QtdAlunosAtendidos m:type="Int32">277</d:QtdAlunosAtendidos>
