@@ -21,12 +21,11 @@ public class Ocorrencia implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Você pode adicionar um ID se desejar
+    private Long id;
 
-    @Column(name = "Numero_da_Ocorrencia", unique = true)
+    @Column(name = "Numero_da_Ocorrencia")
     private String Numero_da_Ocorrencia;
 
     @Column(name = "Numero_da_Ficha")

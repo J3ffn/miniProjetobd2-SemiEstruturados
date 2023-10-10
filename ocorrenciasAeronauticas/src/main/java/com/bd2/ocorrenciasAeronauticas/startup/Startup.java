@@ -19,7 +19,7 @@ public class Startup {
     }
 
    public void start() {
-        documento.selecionarQuantiaRegistros(1);
+        documento.selecionarQuantiaRegistros(100);
     }
 
 }

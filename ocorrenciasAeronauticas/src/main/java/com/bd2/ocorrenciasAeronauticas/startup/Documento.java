@@ -48,7 +48,6 @@ public class Documento {
 
             JsonArray jsonOcorrenciasArray = (JsonArray) JsonParser.parseReader(reader);
             for (JsonElement jsonElement : jsonOcorrenciasArray){
-                // TODO - lógica de correção
                 Ocorrencia novaOcorrencia = gson.fromJson(jsonElement, Ocorrencia.class);
                 ocorrencias.add(novaOcorrencia);
                 numeroRegistros --;
